@@ -21,8 +21,9 @@
             flex-basis: 180px;
 
             font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            line-height: 42px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 40px;
             color: #333333;
 
             display: flex;
@@ -71,10 +72,10 @@
             min-width: 44px;
         }
         .ft__field__line .filter-field[data-type="subtype"] .item:first-of-type {
-            border-radius: 8px 0 0 8px !important;
+            border-radius: 4px 0 0 4px !important;
         }
         .ft__field__line .filter-field[data-type="subtype"] .item:last-of-type {
-            border-radius: 0 8px 8px 0 !important;
+            border-radius: 0 4px 4px 0 !important;
         }
         .ft__field__line .filter-field[data-type="decor"] .content-field {
             display: flex;
@@ -118,7 +119,7 @@
             cursor: pointer;
         }
         .ft__field__line .filter-field.checkbox .content-field label {
-            line-height: 44px;
+            line-height: 40px;
 
             padding-left: 24px;
         }
@@ -160,7 +161,58 @@
         .ft__field__line .filter-field.checkbox .content-field input:checked ~ label::after {
             opacity: 1;
         }
+        #filter-main .filter-field.select-list.active .content-field .select-btn {
+            border: 1px solid #D0D5DD;
+            box-shadow: none;
+        }
 
+        #filter-main .filter-field.number-list {
+            border-radius: 4px;
+        }
+        #filter-main .filter-field.line-check:not([data-type="rooms"]) .content-field .item {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 38px;
+            color: #333333;
+
+            padding: 0 16px;
+
+            border-radius: 4px;
+        }
+        #filter-main .filter-field.line-check:not([data-type="rooms"]) .content-field .item:hover {
+            color: #333333;
+
+            background-color: #F1F0FA;
+        }
+        #filter-main .filter-field.line-check:not([data-type="rooms"]) .content-field .item.active {
+            color: #FFFFFF;
+            background-color: #5947B3;
+        }
+        #filter-main .filter-field.number-list .content-field .from input,
+        #filter-main .filter-field.number-list .content-field .to input {
+            padding: 10px 0 10px;
+        }
+        #filter-main .filter-field.select-list .content-field .select-btn {
+            line-height: 38px;
+            color: #333333;
+            border-radius: 4px;
+        }
+        #filter-main .filter-field.select-list:not([data-type="rooms"]) .content-field .list {
+            min-width: 100%;
+        }
+        #filter-main .filter-field.number-list .content-field input::placeholder {
+            font-size: 14px !important;
+        }
+        #filter-main .filter-field.number-list .content-field .ft__field__metric ~ input {
+            padding-right: 12px !important;
+        }
+        #filter-main .filter-field.number-list .content-field .ft__field__metric {
+            position: absolute !important;
+            top: 50% !important;
+            left: unset !important;
+            right: 4px !important;
+            transform: translateY(-50%);
+        }
     </style>
     <div class="filter__modal micromodal__slide" id="filter__modal" style="display:block;opacity:1;pointer-events:all;">
         <div class="filter__modal__overlay micromodal__overlay" data-micromodal-close="">
@@ -194,7 +246,7 @@
                                 <div class="ft__field__line" data-tooltip="123">
                                     <div class="ft__field__label">Тип недвижимости</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="subtype">
+                                        <div class="filter-field line-check mutliply" data-type="subtype">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Пентхаус</div>
                                                 <div class="item" data-val="2">Таунхаус</div>
@@ -212,11 +264,9 @@
                                             <div class="content-field">
                                                 <div class="from">
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от</label>
                                                 </div>
                                                 <div class="to">
                                                     <input type="text" placeholder="до" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>до</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -304,13 +354,13 @@
                                     <div class="ft__field__label">
                                         <div class="filter-field line-check" data-type="subtype">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Комнат</div>
+                                                <div class="item active" data-val="1">Комнат</div>
                                                 <div class="item" data-val="2">Спален</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">1</div>
                                                 <div class="item" data-val="2">2</div>
@@ -326,7 +376,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Кол-во уровней</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">1</div>
                                                 <div class="item" data-val="2">2</div>
@@ -343,11 +393,10 @@
                                             <div class="content-field">
                                                 <div class="from">
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от</label>
                                                 </div>
                                                 <div class="to">
-                                                    <input type="text" placeholder="до, м²" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>до, м²</label>
+                                                    <span class="ft__field__metric">м²</span>
+                                                    <input type="text" placeholder="до" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
                                                 </div>
                                             </div>
                                         </div>
@@ -361,11 +410,10 @@
                                             <div class="content-field">
                                                 <div class="from">
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от</label>
                                                 </div>
                                                 <div class="to">
-                                                    <input type="text" placeholder="до, м²" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>до, м²</label>
+                                                    <span class="ft__field__metric">м²</span>
+                                                    <input type="text" placeholder="до" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
                                                 </div>
                                             </div>
                                         </div>
@@ -379,11 +427,10 @@
                                             <div class="content-field">
                                                 <div class="from">
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от</label>
                                                 </div>
                                                 <div class="to">
-                                                    <input type="text" placeholder="до, м²" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>до, м²</label>
+                                                    <span class="ft__field__metric">м²</span>
+                                                    <input type="text" placeholder="до" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
                                                 </div>
                                             </div>
                                         </div>
@@ -410,11 +457,10 @@
                                             <div class="content-field">
                                                 <div class="from">
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от</label>
                                                 </div>
                                                 <div class="to">
-                                                    <input type="text" placeholder="до, м" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>до</label>
+                                                    <span class="ft__field__metric">м²</span>
+                                                    <input type="text" placeholder="до" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
                                                 </div>
                                             </div>
                                         </div>
@@ -443,11 +489,10 @@
                                             <div class="content-field">
                                                 <div class="from">
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от</label>
                                                 </div>
                                                 <div class="to">
-                                                    <input type="text" placeholder="до, м" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>до, м</label>
+                                                    <span class="ft__field__metric">м</span>
+                                                    <input type="text" placeholder="до" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
                                                 </div>
                                             </div>
                                         </div>
@@ -465,7 +510,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Отделка</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field select-list line-check active" data-type="decor">
+                                        <div class="filter-field select-list line-check mutliply active" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Без отделки</div>
                                                 <div class="item" data-val="2">Под чистовую</div>
@@ -481,7 +526,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Мебель</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field select-list line-check active" data-type="decor">
+                                        <div class="filter-field select-list line-check mutliply active" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Без мебели</div>
                                                 <div class="item" data-val="2">С мебелью</div>
@@ -526,8 +571,8 @@
                                             <div class="filter-field number-list">
                                                 <div class="content-field">
                                                     <div class="from">
+                                                        <span class="ft__field__metric">шт</span>
                                                         <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                        <label>от шт</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -547,8 +592,8 @@
                                         <div class="filter-field number-list">
                                             <div class="content-field">
                                                 <div class="from">
+                                                    <span class="ft__field__metric">шт</span>
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от шт</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -558,7 +603,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Санузел</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">1</div>
                                                 <div class="item" data-val="2">2</div>
@@ -582,7 +627,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Гардеробных</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">1</div>
                                                 <div class="item" data-val="2">2</div>
@@ -651,7 +696,7 @@
                                 <div class="ft__field__line" data-tooltip="123">
                                     <div class="ft__field__label">Машиномест <span class="ft__field__qu"></span></div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">1</div>
                                                 <div class="item" data-val="2">2</div>
@@ -902,24 +947,12 @@
                                     <div class="ft__field__line">
                                         <div class="ft__field__label">Особенность</div>
                                         <div class="ft__field__content">
-                                            <div class="filter-field line-check">
+                                            <div class="filter-field line-check" data-type="decor">
                                                 <div class="content-field">
                                                     <div class="item" data-val="1">В центре</div>
-                                                </div>
-                                            </div>
-                                            <div class="filter-field line-check">
-                                                <div class="content-field">
-                                                    <div class="item" data-val="1">В пределах ТТК</div>
-                                                </div>
-                                            </div>
-                                            <div class="filter-field line-check">
-                                                <div class="content-field">
-                                                    <div class="item" data-val="1">Внутри садового кольца</div>
-                                                </div>
-                                            </div>
-                                            <div class="filter-field line-check">
-                                                <div class="content-field">
-                                                    <div class="item" data-val="1">Внутри бульварного кольца</div>
+                                                    <div class="item" data-val="2">В пределах ТТК</div>
+                                                    <div class="item" data-val="3">Внутри садового кольца</div>
+                                                    <div class="item" data-val="4">Внутри бульварного кольца</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1170,7 +1203,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Отделка</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field select-list line-check active" data-type="decor">
+                                        <div class="filter-field select-list line-check mutliply active" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Без отделки</div>
                                                 <div class="item" data-val="2">Под чистовую</div>
@@ -1186,7 +1219,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Мебель</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field select-list line-check active" data-type="decor">
+                                        <div class="filter-field select-list line-check mutliply active" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Без мебели</div>
                                                 <div class="item" data-val="2">С мебелью</div>
@@ -1200,7 +1233,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Кол-во этажей</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">1</div>
                                                 <div class="item" data-val="2">2</div>
@@ -1214,13 +1247,13 @@
                                     <div class="ft__field__label">
                                         <div class="filter-field line-check" data-type="subtype">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Комнат</div>
+                                                <div class="item active" data-val="1">Комнат</div>
                                                 <div class="item" data-val="2">Спален</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">1</div>
                                                 <div class="item" data-val="2">2</div>
@@ -1240,11 +1273,10 @@
                                             <div class="content-field">
                                                 <div class="from">
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от</label>
                                                 </div>
                                                 <div class="to">
-                                                    <input type="text" placeholder="до, м²" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>до, м²</label>
+                                                    <span class="ft__field__metric">м²</span>
+                                                    <input type="text" placeholder="до" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
                                                 </div>
                                             </div>
                                         </div>
@@ -1271,11 +1303,10 @@
                                             <div class="content-field">
                                                 <div class="from">
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от</label>
                                                 </div>
                                                 <div class="to">
-                                                    <input type="text" placeholder="до, м" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>до, м</label>
+                                                    <span class="ft__field__metric">м</span>
+                                                    <input type="text" placeholder="до" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
                                                 </div>
                                             </div>
                                         </div>
@@ -1293,7 +1324,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Санузел</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">1</div>
                                                 <div class="item" data-val="2">2</div>
@@ -1461,11 +1492,10 @@
                                             <div class="content-field">
                                                 <div class="from">
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от</label>
                                                 </div>
                                                 <div class="to">
-                                                    <input type="text" placeholder="до, кВТ" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>до, кВТ</label>
+                                                    <span class="ft__field__metric">кВТ</span>
+                                                    <input type="text" placeholder="до" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
                                                 </div>
                                             </div>
                                         </div>
@@ -1760,7 +1790,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Рельеф</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Ровный</div>
                                                 <div class="item" data-val="2">Неровный</div>
@@ -1778,7 +1808,7 @@
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Особенности</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Полностью в лесу</div>
                                                 <div class="item" data-val="2">Полевой</div>
@@ -1803,11 +1833,10 @@
                                             <div class="content-field">
                                                 <div class="from">
                                                     <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>от</label>
                                                 </div>
                                                 <div class="to">
+                                                    <span class="ft__field__metric">кВТ</span>
                                                     <input type="text" placeholder="до, кВТ" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    <label>до, кВТ</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -1917,7 +1946,7 @@
             </div>
         </div>
     </div>
-    <script src="./js/js_gqb_RA6f2FBrbOk1JENdckjHz6S1FsDHB-z9tsU0cew.js"></script>
+    <!-- <script src="./js/js_gqb_RA6f2FBrbOk1JENdckjHz6S1FsDHB-z9tsU0cew.js"></script> -->
     <script>
         let tabs = document.querySelectorAll('.filter__modal__tab');
         let tabs__line = document.querySelector('.filter__modal__line');
@@ -1943,6 +1972,66 @@
 
                     if (panel.dataset.type === type) panel.style.display = 'block';
                 })
+            })
+        })
+
+        let linechecks = document.querySelectorAll('.filter-field.line-check:not(.mutliply) .item');
+        linechecks.forEach(line => {
+            line.addEventListener('click', () => {
+                let parent = line.parentNode;
+                let items = parent.querySelectorAll('.item');
+
+                if (items.length !== 1) {
+                    items.forEach(item => item.classList.remove('active'));
+                    line.classList.add('active');
+                } else {
+                    (line.classList.contains('active')) ? line.classList.remove('active') : line.classList.add('active');
+                }
+            })
+        })
+        let linechecksMulti = document.querySelectorAll('.filter-field.line-check.mutliply .item');
+        linechecksMulti.forEach(line => {
+            line.addEventListener('click', () => {
+                let parent = line.parentNode;
+
+                (line.classList.contains('active')) ? line.classList.remove('active') : line.classList.add('active');
+            })
+        })
+        document.body.addEventListener('click', function () {
+            if (!event.target.closest('.filter-field.select-list')) {
+                let selects = document.querySelectorAll('.filter-field.select-list.active .select-btn');
+                selects.forEach(select => {
+                    let parent = select.parentNode.parentNode;
+                    let list = parent.querySelector('.list');
+
+                    parent.classList.remove('active');
+                    list.style.display = null;
+                })
+            }
+        })
+        let selects = document.querySelectorAll('.filter-field.select-list .select-btn');
+        selects.forEach(select => {
+            let parent = select.parentNode.parentNode;
+            let list = parent.querySelector('.list');
+
+            select.addEventListener('click', () => {
+                let selects_list = document.querySelectorAll('.filter-field.select-list.active .select-btn');
+
+                if (parent.classList.contains('active')) {
+                    parent.classList.remove('active');
+                    list.style.display = null;
+                } else {
+                    selects_list.forEach(select => {
+                        let parent = select.parentNode.parentNode;
+                        let list = parent.querySelector('.list');
+
+                        parent.classList.remove('active');
+                        list.style.display = null;
+                    })
+
+                    parent.classList.add('active');
+                    list.style.display = 'block';
+                }
             })
         })
     </script>
