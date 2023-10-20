@@ -54,7 +54,7 @@
         .ft__field__content {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
         .ft__field__line .filter-field {
             margin: 0 !important;
@@ -175,7 +175,7 @@
             line-height: 38px;
             color: #333333;
 
-            padding: 0 16px;
+            padding: 0 14px;
 
             border-radius: 4px;
         }
@@ -216,6 +216,13 @@
 
         .filter__modal__content {
             height: 60vh;
+        }
+        .filter__modal #filter-main .filter-field[data-type="kitchentype"] .select-btn {
+            justify-content: space-between;
+            min-width: 180px;
+        }
+        .filter__modal #filter-main .filter-field[data-type="kitchentype"] .list {
+            min-width: 200px !important;
         }
     </style>
     <div class="filter__modal micromodal__slide" id="filter__modal" style="display:block;opacity:1;pointer-events:all;">
@@ -438,14 +445,20 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="filter-field select-list line-check">
+                                        <div class="filter-field select-list line-check" data-type="kitchentype">
                                             <div class="content-field">
                                                 <div class="select-btn">Кухня-гостинная</div>
                                                 <div class="list">
-                                                    <div class="item" data-val="Кирпич">
+                                                    <div class="item" data-val="Кухня-гостинная">
+                                                        <label>
+                                                            <input class="filled-in" type="checkbox" checked>
+                                                            <span>Кухня-гостинная</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="item" data-val="Отдельная">
                                                         <label>
                                                             <input class="filled-in" type="checkbox">
-                                                            <span>Кирпич</span>
+                                                            <span>Отдельная</span>
                                                         </label>
                                                     </div>
                                                 </div>
@@ -518,7 +531,7 @@
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Без отделки</div>
                                                 <div class="item" data-val="2">Под чистовую</div>
-                                                <div class="item" data-val="3">В процессе отделки</div>
+                                                <div class="item" data-val="3">В процессе</div>
                                                 <div class="item" data-val="4">С отделкой</div>
                                                 <div class="item" data-val="5">Под ключ</div>
                                                 <div class="item" data-val="6">Новая</div>
@@ -681,7 +694,7 @@
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Со вторым светом</div>
+                                                <div class="item" data-val="1">Второй свет</div>
                                             </div>
                                         </div>
                                         <div class="filter-field line-check">
@@ -992,7 +1005,7 @@
                                                     <div class="item" data-val="2">до 10</div>
                                                     <div class="item" data-val="3">до 15</div>
                                                     <div class="item" data-val="4">до 20</div>
-                                                    <div class="item" data-val="5">20+</div>
+                                                    <div class="item" data-val="5">20+ мин</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1211,7 +1224,7 @@
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Без отделки</div>
                                                 <div class="item" data-val="2">Под чистовую</div>
-                                                <div class="item" data-val="3">В процессе отделки</div>
+                                                <div class="item" data-val="3">В процессе</div>
                                                 <div class="item" data-val="4">С отделкой</div>
                                                 <div class="item" data-val="5">Под ключ</div>
                                                 <div class="item" data-val="6">Новая</div>
@@ -1370,7 +1383,7 @@
                                     <div class="ft__field__content">
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">С террасой</div>
+                                                <div class="item" data-val="1">Терраса</div>
                                             </div>
                                         </div>
                                         <div class="filter-field line-check">
@@ -1380,12 +1393,12 @@
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Со вторым светом</div>
+                                                <div class="item" data-val="1">Второй свет</div>
                                             </div>
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">С плоской крышей</div>
+                                                <div class="item" data-val="1">Плоская крыша</div>
                                             </div>
                                         </div>
                                         <div class="filter-field line-check">
@@ -1952,6 +1965,53 @@
     </div>
     <!-- <script src="./js/js_gqb_RA6f2FBrbOk1JENdckjHz6S1FsDHB-z9tsU0cew.js"></script> -->
     <script>
+        window.homehunterEventListener = function (eventName, parentSelector, selector, eventHandler) {
+            let el = document.querySelector(parentSelector);
+            if (!el) return;
+
+            if (selector) {
+                const wrappedHandler = (e) => {
+                    if (!e.target) return;
+                    const el = e.target.closest(selector);
+                    if (el) {
+                        const newEvent = Object.create(e, {
+                            target: {
+                                value: el
+                            }
+                        });
+                        eventHandler.call(el, newEvent);
+                    }
+                };
+
+                el.addEventListener(eventName, wrappedHandler);
+                return wrappedHandler;
+            } else {
+                const wrappedHandler = (e) => {
+                    eventHandler.call(el, e);
+                };
+
+                el.addEventListener(eventName, wrappedHandler);
+                return wrappedHandler;
+            }
+        }
+
+        homehunterEventListener('click', '#filter-main .full-search-options', '.full-search-category .blocktitle', function () {
+            if (this.parentNode.classList.contains('hidden')) {
+                this.classList.remove('active');
+                this.parentNode.classList.remove('hidden');
+
+                this.parentNode.style.maxHeight = this.parentNode.scrollHeight + 'px';
+                setTimeout(() => {
+                    this.parentNode.style.overflow = 'visible';
+                }, 350)
+            } else {
+                this.classList.add('active');
+                this.parentNode.classList.add('hidden');
+
+                this.parentNode.style.overflow = 'hidden';
+                this.parentNode.style.maxHeight = this.scrollHeight + 'px';
+            }
+        });
         let tabs = document.querySelectorAll('.filter__modal__tab');
         let tabs__line = document.querySelector('.filter__modal__line');
         tabs.forEach(tab => {
@@ -2036,6 +2096,21 @@
                     parent.classList.add('active');
                     list.style.display = 'block';
                 }
+            })
+        })
+        let kitchentype = document.querySelectorAll('.filter-field[data-type="kitchentype"] .item');
+        kitchentype.forEach(item => {
+            let parent = item.closest('.content-field');
+            let btn = parent.querySelector('.select-btn');
+
+            item.addEventListener('click', () => {
+                let items = parent.querySelectorAll('.item input');
+                items.forEach(item => item.checked = false);
+
+                let input = item.querySelector('input');
+                input.checked = true;
+
+                btn.textContent = item.textContent;
             })
         })
     </script>
