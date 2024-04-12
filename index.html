@@ -51,11 +51,19 @@
         .ft__field__label:hover .ft__field__qu {
             background-color: #5947B3;
         }
+
         .ft__field__content {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
+        .ft__field__subline {
+            display: flex;
+            gap: 10px;
+
+            width: 100%;
+        }
+
         .ft__field__line .filter-field {
             margin: 0 !important;
         }
@@ -190,7 +198,7 @@
         }
         #filter-main .filter-field.number-list .content-field .from input,
         #filter-main .filter-field.number-list .content-field .to input {
-            padding: 10px 0 10px;
+            padding: 9px 0;
         }
         #filter-main .filter-field.select-list .content-field .select-btn {
             line-height: 38px;
@@ -254,6 +262,7 @@
                         <div class="panel" data-type="flat">
                             <div class="blocktitle">Характеристики лота</div>
                             <div class="line-box">
+                                <!-- Тип недвижимости -->
                                 <div class="ft__field__line" data-tooltip="123">
                                     <div class="ft__field__label">Тип недвижимости</div>
                                     <div class="ft__field__content">
@@ -267,10 +276,12 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
+                                <!-- Стоимость -->
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Стоимость</div>
                                     <div class="ft__field__content">
+                                        <!-- От и До -->
                                         <div class="filter-field number-list">
                                             <div class="content-field">
                                                 <div class="from">
@@ -281,24 +292,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="filter-field checkbox">
-                                            <div class="content-field">
-                                                <input type="radio" name="pricetype" value="" checked>
-                                                <label>Цена за все</label>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field checkbox">
-                                            <div class="content-field">
-                                                <input type="radio" name="pricetype" value="">
-                                                <label>Цена за м²</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="ft__field__line" data-tooltip="123">
-                                    <div class="ft__field__label">Валюта <span class="ft__field__qu"></span></div>
-                                    <div class="ft__field__content">
+                                        <!-- Валюта -->
                                         <div class="filter-field line-check" data-type="subtype">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">₽</div>
@@ -306,9 +300,43 @@
                                                 <div class="item" data-val="3">€</div>
                                             </div>
                                         </div>
+                                        <!-- Тип от и до -->
+                                        <div class="filter-field line-check" data-type="subtype">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Цена за все</div>
+                                                <div class="item" data-val="2">Цена за м²</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
     
+                                <!-- Комнат -->
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Комнат</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">1</div>
+                                                <div class="item" data-val="2">2</div>
+                                                <div class="item" data-val="3">3</div>
+                                                <div class="item" data-val="4">4</div>
+                                                <div class="item" data-val="5">5</div>
+                                                <div class="item" data-val="6">Свободная планировка</div>
+                                            </div>
+                                        </div>
+                                        <!-- Спальни -->
+                                        <div class="ft__field__subline">
+                                            <div class="filter-field checkbox">
+                                                <div class="content-field">
+                                                    <input type="checkbox" name="pricetype" value="" checked>
+                                                    <label>Искать только спальни</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- Опции -->
                                 <div class="ft__field__line" data-tooltip="123">
                                     <div class="ft__field__label">Опции <span class="ft__field__qu"></span></div>
                                     <div class="ft__field__content">
@@ -327,76 +355,40 @@
                                                 <div class="item" data-val="1">Новые предложения</div>
                                             </div>
                                         </div>
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">Подходит для инвестиций</div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
     
-                                <div class="ft__field__line" data-tooltip="123">
-                                    <div class="ft__field__label">Апартаменты <span class="ft__field__qu"></span></div>
-                                    <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="subtype">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">Без апартаментов</div>
-                                                <div class="item" data-val="2">Только апартаменты</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
+                                <!-- Отделка -->
                                 <div class="ft__field__line">
-                                    <div class="ft__field__label">Тип сделки</div>
+                                    <div class="ft__field__label">Отделка</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="subtype">
+                                        <div class="filter-field select-list line-check mutliply active" data-type="decor">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Любая</div>
-                                                <div class="item" data-val="2">Прямая</div>
-                                                <div class="item" data-val="3">Переуступка</div>
-                                                <div class="item" data-val="4">Закрытая продажа</div>
+                                                <div class="item" data-val="1">Без отделки</div>
+                                                <div class="item" data-val="2">Под чистовую</div>
+                                                <div class="item" data-val="3">В процессе</div>
+                                                <div class="item" data-val="4">С отделкой</div>
+                                                <div class="item" data-val="5">Под ключ</div>
+                                                <div class="item" data-val="6">Новая</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
     
+                                <!-- Стиль отделки -->
                                 <div class="ft__field__line">
-                                    <div class="ft__field__label">
-                                        <div class="filter-field line-check" data-type="subtype">
-                                            <div class="content-field">
-                                                <div class="item active" data-val="1">Комнат</div>
-                                                <div class="item" data-val="2">Спален</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="ft__field__label">Стиль отделки</div>
                                     <div class="ft__field__content">
                                         <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">1</div>
-                                                <div class="item" data-val="2">2</div>
-                                                <div class="item" data-val="3">3</div>
-                                                <div class="item" data-val="4">4</div>
-                                                <div class="item" data-val="5">5</div>
-                                                <div class="item" data-val="6">Свободная планировка</div>
+                                                <div class="item" data-val="1">Классический</div>
+                                                <div class="item" data-val="1">Современный</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
     
-                                <div class="ft__field__line">
-                                    <div class="ft__field__label">Кол-во уровней</div>
-                                    <div class="ft__field__content">
-                                        <div class="filter-field line-check mutliply" data-type="decor">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">1</div>
-                                                <div class="item" data-val="2">2</div>
-                                                <div class="item" data-val="3">3+</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
+                                <!-- Общая площадь -->
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Общая площадь</div>
                                     <div class="ft__field__content">
@@ -414,6 +406,7 @@
                                     </div>
                                 </div>
     
+                                <!-- Жилая площадь -->
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Жилая площадь</div>
                                     <div class="ft__field__content">
@@ -431,6 +424,7 @@
                                     </div>
                                 </div>
     
+                                <!-- Площадь кухни -->
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Площадь кухни</div>
                                     <div class="ft__field__content">
@@ -467,6 +461,7 @@
                                     </div>
                                 </div>
     
+                                <!-- Этаж -->
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Этаж</div>
                                     <div class="ft__field__content">
@@ -499,6 +494,7 @@
                                     </div>
                                 </div>
     
+                                <!-- Высота потолков -->
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Высота потолков</div>
                                     <div class="ft__field__content">
@@ -515,7 +511,6 @@
                                         </div>
                                         <div class="filter-field line-check" data-type="decor">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">от 2.7 м</div>
                                                 <div class="item" data-val="2">от 3 м</div>
                                                 <div class="item" data-val="3">от 3.5 м</div>
                                                 <div class="item" data-val="4">от 4 м</div>
@@ -523,100 +518,8 @@
                                         </div>
                                     </div>
                                 </div>
-    
-                                <div class="ft__field__line">
-                                    <div class="ft__field__label">Отделка</div>
-                                    <div class="ft__field__content">
-                                        <div class="filter-field select-list line-check mutliply active" data-type="decor">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">Без отделки</div>
-                                                <div class="item" data-val="2">Под чистовую</div>
-                                                <div class="item" data-val="3">В процессе</div>
-                                                <div class="item" data-val="4">С отделкой</div>
-                                                <div class="item" data-val="5">Под ключ</div>
-                                                <div class="item" data-val="6">Новая</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="ft__field__line">
-                                    <div class="ft__field__label">Мебель</div>
-                                    <div class="ft__field__content">
-                                        <div class="filter-field select-list line-check mutliply active" data-type="decor">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">Без мебели</div>
-                                                <div class="item" data-val="2">С мебелью</div>
-                                                <div class="item" data-val="3">Только кухонная мебель</div>
-                                                <div class="item" data-val="4">Частиная мебелировка</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="ft__field__line">
-                                    <div class="ft__field__label">Вид из окон</div>
-                                    <div class="ft__field__content">
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">Во двор</div>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">На улицу</div>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">На 3 стороны</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="ft__field__line">
-                                    <div class="ft__field__label">Балкон</div>
-                                    <div class="ft__field__content">
-                                        <div class="ft__field__content">
-                                            <div class="filter-field line-check" data-type="decor">
-                                                <div class="content-field">
-                                                    <div class="item" data-val="1">С балконом</div>
-                                                    <div class="item" data-val="2">Без балкона</div>
-                                                </div>
-                                            </div>
-                                            <div class="filter-field number-list">
-                                                <div class="content-field">
-                                                    <div class="from">
-                                                        <span class="ft__field__metric">шт</span>
-                                                        <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="ft__field__line">
-                                    <div class="ft__field__label">Лоджия</div>
-                                    <div class="ft__field__content">
-                                        <div class="filter-field line-check" data-type="decor">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">С лоджией</div>
-                                                <div class="item" data-val="2">Без лоджии</div>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field number-list">
-                                            <div class="content-field">
-                                                <div class="from">
-                                                    <span class="ft__field__metric">шт</span>
-                                                    <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
+
+                                <!-- Санузел -->
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Санузел</div>
                                     <div class="ft__field__content">
@@ -640,20 +543,8 @@
                                         </div>
                                     </div>
                                 </div>
-    
-                                <div class="ft__field__line">
-                                    <div class="ft__field__label">Гардеробных</div>
-                                    <div class="ft__field__content">
-                                        <div class="filter-field line-check mutliply" data-type="decor">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">1</div>
-                                                <div class="item" data-val="2">2</div>
-                                                <div class="item" data-val="3">3+</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
+
+                                <!-- Особенности -->
                                 <div class="ft__field__line">
                                     <div class="ft__field__label">Особенности</div>
                                     <div class="ft__field__content">
@@ -707,6 +598,159 @@
                                                 <div class="item" data-val="1">Два входа</div>
                                             </div>
                                         </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Одна квартира на этаже</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Отдельный вход</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- Кол-во уровней -->
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Кол-во уровней</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">1</div>
+                                                <div class="item" data-val="2">2</div>
+                                                <div class="item" data-val="3">3+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Апартаменты -->
+                                <div class="ft__field__line" data-tooltip="123">
+                                    <div class="ft__field__label">Апартаменты <span class="ft__field__qu"></span></div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check" data-type="subtype">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Без апартаментов</div>
+                                                <div class="item" data-val="2">Только апартаменты</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Тип сделки -->
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Тип сделки</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check" data-type="subtype">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Прямая</div>
+                                                <div class="item" data-val="2">Переуступка</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Мебель</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field select-list line-check mutliply active" data-type="decor">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Без мебели</div>
+                                                <div class="item" data-val="2">С мебелью</div>
+                                                <div class="item" data-val="3">Только кухонная мебель</div>
+                                                <div class="item" data-val="4">Частиная мебелировка</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Вид из окон</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Во двор</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">На улицу</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">На 3 стороны</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field select-list line-check">
+                                            <div class="content-field">
+                                                <div class="select-btn">Материал окон</div>
+                                                <div class="list">
+                                                    <div class="item" data-val="Кирпич">
+                                                        <label>
+                                                            <input class="filled-in" type="checkbox">
+                                                            <span>Кирпич</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Балкон</div>
+                                    <div class="ft__field__content">
+                                        <div class="ft__field__content">
+                                            <div class="filter-field line-check" data-type="decor">
+                                                <div class="content-field">
+                                                    <div class="item" data-val="1">С балконом</div>
+                                                    <div class="item" data-val="2">Без балкона</div>
+                                                </div>
+                                            </div>
+                                            <div class="filter-field number-list">
+                                                <div class="content-field">
+                                                    <div class="from">
+                                                        <span class="ft__field__metric">шт</span>
+                                                        <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Лоджия</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check" data-type="decor">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">С лоджией</div>
+                                                <div class="item" data-val="2">Без лоджии</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field number-list">
+                                            <div class="content-field">
+                                                <div class="from">
+                                                    <span class="ft__field__metric">шт</span>
+                                                    <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Гардеробных</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">1</div>
+                                                <div class="item" data-val="2">2</div>
+                                                <div class="item" data-val="3">3+</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
     
@@ -718,6 +762,15 @@
                                                 <div class="item" data-val="1">1</div>
                                                 <div class="item" data-val="2">2</div>
                                                 <div class="item" data-val="3">3+</div>
+                                            </div>
+                                        </div>
+                                        <!-- Подземный паркинг -->
+                                        <div class="ft__field__subline">
+                                            <div class="filter-field checkbox">
+                                                <div class="content-field">
+                                                    <input type="checkbox" name="pricetype" value="" checked>
+                                                    <label>Учитывать только с подземным паркингом</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -824,32 +877,6 @@
                                         </div>
                                         <div class="filter-field select-list line-check">
                                             <div class="content-field">
-                                                <div class="select-btn">Стиль отделки</div>
-                                                <div class="list">
-                                                    <div class="item" data-val="Кирпич">
-                                                        <label>
-                                                            <input class="filled-in" type="checkbox">
-                                                            <span>Кирпич</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field select-list line-check">
-                                            <div class="content-field">
-                                                <div class="select-btn">Материал окон</div>
-                                                <div class="list">
-                                                    <div class="item" data-val="Кирпич">
-                                                        <label>
-                                                            <input class="filled-in" type="checkbox">
-                                                            <span>Кирпич</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field select-list line-check">
-                                            <div class="content-field">
                                                 <div class="select-btn">Кондиционирование</div>
                                                 <div class="list">
                                                     <div class="item" data-val="Кирпич">
@@ -941,11 +968,6 @@
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Без обременений</div>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
                                                 <div class="item" data-val="1">Жильцы в квартире</div>
                                             </div>
                                         </div>
@@ -1001,10 +1023,10 @@
                                         <div class="ft__field__content">
                                             <div class="filter-field line-check" data-type="decor">
                                                 <div class="content-field">
-                                                    <div class="item" data-val="1">до 5</div>
-                                                    <div class="item" data-val="2">до 10</div>
-                                                    <div class="item" data-val="3">до 15</div>
-                                                    <div class="item" data-val="4">до 20</div>
+                                                    <div class="item" data-val="1">до 5 мин</div>
+                                                    <div class="item" data-val="2">до 10 мин</div>
+                                                    <div class="item" data-val="3">до 15 мин</div>
+                                                    <div class="item" data-val="4">до 20 мин</div>
                                                     <div class="item" data-val="5">20+ мин</div>
                                                 </div>
                                             </div>
@@ -1017,11 +1039,6 @@
                                     <div class="ft__field__line">
                                         <div class="ft__field__label">Класс ЖК</div>
                                         <div class="ft__field__content">
-                                            <div class="filter-field line-check">
-                                                <div class="content-field">
-                                                    <div class="item" data-val="1">Любой</div>
-                                                </div>
-                                            </div>
                                             <div class="filter-field line-check">
                                                 <div class="content-field">
                                                     <div class="item" data-val="1">Бизнес</div>
@@ -1045,8 +1062,10 @@
                                         <div class="ft__field__content">
                                             <div class="filter-field line-check" data-type="decor">
                                                 <div class="content-field">
-                                                    <div class="item" data-val="1">до 2010</div>
-                                                    <div class="item" data-val="2">после 2020</div>
+                                                    <div class="item" data-val="prev2000">до 2000</div>
+                                                    <div class="item" data-val="prev2010">до 2010</div>
+                                                    <div class="item" data-val="next2010">после 2010</div>
+                                                    <div class="item" data-val="next2020">после 2020</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1119,11 +1138,6 @@
                                             </div>
                                             <div class="filter-field line-check">
                                                 <div class="content-field">
-                                                    <div class="item" data-val="1">Гостевая парковка</div>
-                                                </div>
-                                            </div>
-                                            <div class="filter-field line-check">
-                                                <div class="content-field">
                                                     <div class="item" data-val="1">С паркингом</div>
                                                 </div>
                                             </div>
@@ -1178,11 +1192,36 @@
                             <div class="blocktitle">Характеристики лота</div>
                             <div class="line-box">
                                 <div class="ft__field__line">
+                                    <div class="ft__field__label">Популярные параметры</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">В черте города</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">С бассейном</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Охраняемый поселок</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Собственный выход в лес</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ft__field__line">
                                     <div class="ft__field__label">Тип сделки</div>
                                     <div class="ft__field__content">
                                         <div class="filter-field line-check" data-type="subtype">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Любая</div>
                                                 <div class="item" data-val="2">Прямая</div>
                                                 <div class="item" data-val="3">Переуступка</div>
                                                 <div class="item" data-val="4">Закрытая продажа</div>
@@ -1209,9 +1248,30 @@
                                                 <div class="item" data-val="1">Новые предложения</div>
                                             </div>
                                         </div>
-                                        <div class="filter-field line-check">
+                                        <div class="filter-field select-list line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Подходит для инвестиций</div>
+                                                <div class="select-btn">Технология строительства</div>
+                                                <div class="list">
+                                                    <div class="item" data-val="Кирпич">
+                                                        <label>
+                                                            <input class="filled-in" type="checkbox">
+                                                            <span>Кирпич</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field select-list line-check">
+                                            <div class="content-field">
+                                                <div class="select-btn">Стиль архитектуры</div>
+                                                <div class="list">
+                                                    <div class="item" data-val="Кирпич">
+                                                        <label>
+                                                            <input class="filled-in" type="checkbox">
+                                                            <span>Кирпич</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1228,6 +1288,38 @@
                                                 <div class="item" data-val="4">С отделкой</div>
                                                 <div class="item" data-val="5">Под ключ</div>
                                                 <div class="item" data-val="6">Новая</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Стиль отделки -->
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Стиль отделки</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Классический</div>
+                                                <div class="item" data-val="1">Современный</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Опции отделки</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field select-list line-check">
+                                            <div class="content-field">
+                                                <div class="select-btn">Дизайн интерьера</div>
+                                                <div class="list">
+                                                    <div class="item" data-val="Кирпич">
+                                                        <label>
+                                                            <input class="filled-in" type="checkbox">
+                                                            <span>Кирпич</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1261,14 +1353,24 @@
                                 </div>
     
                                 <div class="ft__field__line">
-                                    <div class="ft__field__label">
-                                        <div class="filter-field line-check" data-type="subtype">
+                                    <div class="ft__field__label">Ограничения</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item active" data-val="1">Комнат</div>
-                                                <div class="item" data-val="2">Спален</div>
+                                                <div class="item" data-val="1">Без цокольного этажа</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Без мансарды</div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+    
+                                <!-- Комнат -->
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Комнат</div>
                                     <div class="ft__field__content">
                                         <div class="filter-field line-check mutliply" data-type="decor">
                                             <div class="content-field">
@@ -1278,6 +1380,32 @@
                                                 <div class="item" data-val="4">4</div>
                                                 <div class="item" data-val="5">5</div>
                                                 <div class="item" data-val="6">Свободная планировка</div>
+                                            </div>
+                                        </div>
+                                        <!-- Спальни -->
+                                        <div class="ft__field__subline">
+                                            <div class="filter-field checkbox">
+                                                <div class="content-field">
+                                                    <input type="checkbox" name="pricetype" value="" checked>
+                                                    <label>Искать только спальни</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Площадь всех строений</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field number-list">
+                                            <div class="content-field">
+                                                <div class="from">
+                                                    <input type="text" placeholder="от" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
+                                                </div>
+                                                <div class="to">
+                                                    <span class="ft__field__metric">м²</span>
+                                                    <input type="text" placeholder="до" value="" data-maskjs="1" data-maskjs-scale="0" data-maskjs-min="10" data-maskjs-max="99999">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1329,7 +1457,6 @@
                                         </div>
                                         <div class="filter-field line-check" data-type="decor">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">от 2.7 м</div>
                                                 <div class="item" data-val="2">от 3 м</div>
                                                 <div class="item" data-val="3">от 3.5 м</div>
                                                 <div class="item" data-val="4">от 4 м</div>
@@ -1363,29 +1490,8 @@
                                 </div>
     
                                 <div class="ft__field__line">
-                                    <div class="ft__field__label">Ограничения</div>
-                                    <div class="ft__field__content">
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">Без цокольного этажа</div>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">Без мансарды</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="ft__field__line">
                                     <div class="ft__field__label">Особенности</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">Терраса</div>
-                                            </div>
-                                        </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Панорамные окна</div>
@@ -1408,11 +1514,6 @@
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Зимний сад</div>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
                                                 <div class="item" data-val="1">Гостевой дом</div>
                                             </div>
                                         </div>
@@ -1423,17 +1524,22 @@
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
+                                                <div class="item" data-val="1">Два заезда</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
                                                 <div class="item" data-val="1">Помещение для персонала</div>
                                             </div>
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">У воды</div>
+                                                <div class="item" data-val="1">Бассейн</div>
                                             </div>
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">В черте города</div>
+                                                <div class="item" data-val="1">Камин</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1520,38 +1626,6 @@
                                 </div>
     
                                 <div class="ft__field__line">
-                                    <div class="ft__field__label">Опции отделки</div>
-                                    <div class="ft__field__content">
-                                        <div class="filter-field select-list line-check">
-                                            <div class="content-field">
-                                                <div class="select-btn">Дизайн интерьера</div>
-                                                <div class="list">
-                                                    <div class="item" data-val="Кирпич">
-                                                        <label>
-                                                            <input class="filled-in" type="checkbox">
-                                                            <span>Кирпич</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field select-list line-check">
-                                            <div class="content-field">
-                                                <div class="select-btn">Стиль отделки</div>
-                                                <div class="list">
-                                                    <div class="item" data-val="Кирпич">
-                                                        <label>
-                                                            <input class="filled-in" type="checkbox">
-                                                            <span>Кирпич</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="ft__field__line">
                                     <div class="ft__field__label">Парковка</div>
                                     <div class="ft__field__content">
                                         <div class="filter-field line-check" data-type="subtype">
@@ -1579,13 +1653,22 @@
                                 </div>
     
                                 <div class="ft__field__line">
-                                    <div class="ft__field__label">Удобство</div>
+                                    <div class="ft__field__label">Мест в гараже</div>
                                     <div class="ft__field__content">
-                                        <div class="filter-field line-check">
+                                        <div class="filter-field line-check" data-type="decor">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Камин</div>
+                                                <div class="item" data-val="1">1</div>
+                                                <div class="item" data-val="2">2</div>
+                                                <div class="item" data-val="3">3</div>
+                                                <div class="item" data-val="4">4+</div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+    
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Удобство</div>
+                                    <div class="ft__field__content">
                                         <div class="filter-field line-check">
                                             <div class="content-field">
                                                 <div class="item" data-val="1">Сауна</div>
@@ -1628,7 +1711,7 @@
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Тематическая кухня</div>
+                                                <div class="item" data-val="1">Техническая кухня</div>
                                             </div>
                                         </div>
                                         <div class="filter-field line-check">
@@ -1644,22 +1727,17 @@
                                     <div class="ft__field__content">
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Теплые полы</div>
+                                                <div class="item" data-val="1">Кондиционирование</div>
                                             </div>
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Умный дом</div>
+                                                <div class="item" data-val="1">Увлажнение</div>
                                             </div>
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Вентиляция</div>
-                                            </div>
-                                        </div>
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">Лифт</div>
+                                                <div class="item" data-val="1">Резервное электроснабжение</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1685,7 +1763,24 @@
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Охраняемый КП</div>
+                                                <div class="item" data-val="1">Свой пост охраны</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Рельеф</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check mutliply" data-type="decor">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Ровный</div>
+                                                <div class="item" data-val="2">Неровный</div>
+                                                <div class="item" data-val="3">Небольшой уклон</div>
+                                                <div class="item" data-val="4">Большой уклон</div>
+                                                <div class="item" data-val="5">Перепад высот</div>
+                                                <div class="item" data-val="6">Рельефный</div>
+                                                <div class="item" data-val="7">Природный заброшенный</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1751,6 +1846,33 @@
                         <div class="panel" style="display: none;" data-type="plot">
                             <div class="blocktitle">Характеристики лота</div>
                             <div class="line-box">
+                                <!-- На уточнение -->
+                                <div class="ft__field__line">
+                                    <div class="ft__field__label">Популярные параметры</div>
+                                    <div class="ft__field__content">
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">В черте города</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">С бассейном</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Охраняемый поселок</div>
+                                            </div>
+                                        </div>
+                                        <div class="filter-field line-check">
+                                            <div class="content-field">
+                                                <div class="item" data-val="1">Собственный выход в лес</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="ft__field__line" data-tooltip="123">
                                     <div class="ft__field__label">Опции <span class="ft__field__qu"></span></div>
                                     <div class="ft__field__content">
@@ -1769,11 +1891,6 @@
                                                 <div class="item" data-val="1">Новые предложения</div>
                                             </div>
                                         </div>
-                                        <div class="filter-field line-check">
-                                            <div class="content-field">
-                                                <div class="item" data-val="1">Подходит для инвестиций</div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -1782,7 +1899,6 @@
                                     <div class="ft__field__content">
                                         <div class="filter-field line-check" data-type="subtype">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">Любая</div>
                                                 <div class="item" data-val="2">Прямая</div>
                                                 <div class="item" data-val="3">Переуступка</div>
                                                 <div class="item" data-val="4">Закрытая продажа</div>
@@ -1812,11 +1928,10 @@
                                                 <div class="item" data-val="1">Ровный</div>
                                                 <div class="item" data-val="2">Неровный</div>
                                                 <div class="item" data-val="3">Небольшой уклон</div>
-                                                <div class="item" data-val="4">Небольшой уклон</div>
-                                                <div class="item" data-val="5">Большой уклон</div>
-                                                <div class="item" data-val="6">Перепад высот</div>
-                                                <div class="item" data-val="7">Рельефный</div>
-                                                <div class="item" data-val="8">Природный заброшенный</div>
+                                                <div class="item" data-val="4">Большой уклон</div>
+                                                <div class="item" data-val="5">Перепад высот</div>
+                                                <div class="item" data-val="6">Рельефный</div>
+                                                <div class="item" data-val="7">Природный заброшенный</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1831,13 +1946,12 @@
                                                 <div class="item" data-val="2">Полевой</div>
                                                 <div class="item" data-val="3">Прилесной</div>
                                                 <div class="item" data-val="4">С лесными деревьями</div>
-                                                <div class="item" data-val="5">Приегает к водоему</div>
+                                                <div class="item" data-val="5">Прилегает к водоему</div>
                                                 <div class="item" data-val="6">1-ая линия большой воды</div>
                                                 <div class="item" data-val="7">Прилегает к парку</div>
                                                 <div class="item" data-val="8">Сосны на участке</div>
                                                 <div class="item" data-val="9">Тихая часть поселка</div>
                                                 <div class="item" data-val="10">С фонтаном</div>
-                                                <div class="item" data-val="11">В черте города</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1941,7 +2055,7 @@
                                         </div>
                                         <div class="filter-field line-check">
                                             <div class="content-field">
-                                                <div class="item" data-val="1">В охраняемом КП</div>
+                                                <div class="item" data-val="1">Свой пост охраны</div>
                                             </div>
                                         </div>
                                     </div>
